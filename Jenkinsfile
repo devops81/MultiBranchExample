@@ -2,11 +2,7 @@ pipeline {
     agent any
     stages {
 
-stage('SCM Checkout')
-          {
-          checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/devops81/MultiBranchExample.git']]])
-          }
-          
+
 stage('Build the MVN project')
 {
 def mvnHome = tool name: 'MavenHome', type: 'maven'
