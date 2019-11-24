@@ -1,6 +1,6 @@
-
-node 
-{
+pipeline {
+    agent any
+    stages {
 
 stage('SCM Checkout')
           {
@@ -51,5 +51,5 @@ sh 'docker build -t devops81/my-app:2.1.2 .'
                 }
             }   
 }
-
+    }
 }
