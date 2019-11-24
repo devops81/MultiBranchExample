@@ -6,8 +6,9 @@ pipeline {
 stage('Build the MVN project')
 {
     steps {
+        script {
 def mvnHome = tool name: 'MavenHome', type: 'maven'
-sh "${mvnHome}/bin/mvn package"
+            sh "${mvnHome}/bin/mvn package" }
     }
 }
 stage('Build Docker Image')
