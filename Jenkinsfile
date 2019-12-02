@@ -1,5 +1,10 @@
+rtMaven.tool = 'Maven3'
 pipeline {
   agent any
+  {
+    jdk "JAVA8"
+    maven "Maven3"
+  }
   stages {
     stage('Checkout') {
       steps {
@@ -9,7 +14,9 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'echo "This is build step"'
+        script {
+        rtMaven.run pom: 'pom.xml',goals: 'clean package' 
+        }
       }
     }
 
